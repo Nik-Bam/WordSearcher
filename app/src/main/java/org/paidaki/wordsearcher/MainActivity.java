@@ -25,6 +25,17 @@ public class MainActivity extends Activity {
     private WordFinder wordFinder;
     private ArrayList<String> listItems;
 
+    private static void setViewEnabled(View view, boolean enabled) {
+        view.setEnabled(enabled);
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                View child = viewGroup.getChildAt(i);
+                setViewEnabled(child, enabled);
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +55,7 @@ public class MainActivity extends Activity {
 
     public void openFile(View view) {
         try {
-            wordFinder.loadDictionary(this, getAssets().open("greek_fixed.dic"));
+            wordFinder.loadDictionary(this, getAssets().open("Greek.dic"));
         } catch (IOException e) {
             errorDialog.showAndWait("File not found.");
         }
@@ -67,21 +78,10 @@ public class MainActivity extends Activity {
 
     public void loadDone(boolean success) {
         if (success) {
-            dictionary.setText("greek_fixed.dic");
+            dictionary.setText("Greek.dic");
             setViewEnabled(container, true);
         } else {
             errorDialog.showAndWait("Invalid Dictionary File.");
-        }
-    }
-
-    private static void setViewEnabled(View view, boolean enabled) {
-        view.setEnabled(enabled);
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View child = viewGroup.getChildAt(i);
-                setViewEnabled(child, enabled);
-            }
         }
     }
 }
