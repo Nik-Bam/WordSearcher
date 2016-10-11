@@ -14,9 +14,9 @@ The desktop application [ScrambledWord](https://github.com/Nik-Bam/ScrambledWord
 
 ## TODO
 
-* Fix Bugs
-* Load dictionary from SQLite Database (Hopefully will load faster than assets)
-* Error Handling
+* [ ] Fix Bugs
+* [ ] Load dictionary from SQLite Database (Hopefully will load faster than assets)
+* [ ] Error Handling
 
 ## Authors
 
