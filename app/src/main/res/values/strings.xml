@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WordSearcher</string>
+    <string name="open">Open</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="lt_select_dictionary_file"><![CDATA[<Select Dictionary File>]]></string>
+    <string name="mystery_word">Mystery Word</string>
+    <string name="search">Search</string>
+    <string name="possible_matches">Possible Matches</string>
+</resources>
